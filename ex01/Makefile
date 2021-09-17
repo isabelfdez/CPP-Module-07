@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/17 14:37:16 by isfernan          #+#    #+#              #
-#    Updated: 2021/09/17 14:37:34 by isfernan         ###   ########.fr        #
+#    Updated: 2021/09/17 22:21:47 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS 		= main.cpp
+SRCS 		= main.cpp	iter.cpp
 
 OBJS 		= $(SRCS:.cpp=.o)
 
 CXXFLAGS	= -Wall -Werror -Wextra
 
-NAME		= Templates
+NAME		= Iter
 
 all:		$(NAME)
 

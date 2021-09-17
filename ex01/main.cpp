@@ -3,10 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 14:37:21 by isfernan          #+#    #+#             */
-/*   Updated: 2021/09/17 14:37:22 by isfernan         ###   ########.fr       */
+/*   Updated: 2021/09/17 23:04:39 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "iter.hpp"
+
+
+int		main()
+{
+	int		a[5] = { 0, 1, 2, 3, 4 };
+	int		i = 0;
+
+	while (i < 5)
+	{
+		std::cout << a[i] << ' ';
+		i++;	
+	}
+	std::cout << '\n';
+	iter<int>(a, 5, &ft_add);
+	i = 0;
+	while (i < 5)
+	{
+		a[i] = i;
+		std::cout << a[i] << ' ';
+		i++;	
+	}
+	std::cout << '\n';
+}
