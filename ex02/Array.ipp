@@ -3,46 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   Array.ipp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 23:21:59 by user42            #+#    #+#             */
-/*   Updated: 2021/09/19 23:52:36 by user42           ###   ########.fr       */
+/*   Updated: 2021/09/20 17:35:13 by isfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template<class T>
-Array<T>::Array() : _length(0), _arr(NULL) { }
+Array<T>::Array() : _length(0) { }
 
 template<class T>
 Array<T>::Array(unsigned int n) : _length(n)
 {
-	this->_arr = new T[n]();
+	this->_arr = new T[n];
 }
 
 template<class T>
 Array<T> &Array<T>::operator=(Array<T> &obj)
 {
-	int		i = 0;
-
-	Array<T>	*obj2 = new Array<T>(obj._length);
-	while (i < obj._length)
+	if (this->_length > 0)
+		delete[] this->_arr;
+	this->_arr = NULL;
+	if (obj._length > 0)
 	{
-		obj2->_arr[i] = obj._arr[i];
-		i++;
+		this->_arr = new T[obj._length];
+		for (int i = 0; i < obj._length; i++)
+			this->_arr[i] = obj._arr[i];
 	}
-	return (*obj2);
+	this->_length = obj._length;
+	return (*this);
 }
 
 template<class T>
-Array<T>::Array(Array<T> &obj) { *this = obj; }
+Array<T>::Array(Array<T> &obj)
+{ 
+	this->_length = 0;
+	this->_arr = NULL;
+	*this = obj; 
+}
 
 template<class T>
-Array<T>::~Array() { }
+Array<T>::~Array()
+{
+	if (this->_length > 0)
+		delete [] this->_arr;
+}
 
 template<class T>
 T &Array<T>::operator[](int index)
 {
-	if (index >= _length)
+	if (index >= _length || index < 0)
 		throw OutOfRange();
 	else
 		return (this->_arr[index]);

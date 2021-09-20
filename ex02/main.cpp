@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 22:56:05 by user42            #+#    #+#             */
-/*   Updated: 2021/09/19 23:57:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/09/20 17:34:20 by isfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ int main(int, char**)
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
-		std::cout << mirror[i] << std::endl;
+		std::cout << numbers[i] << std::endl;
     }
     //SCOPE
     {
         Array<int> tmp = numbers;
-	std::cout << "dalee" << '\n';
-        Array<int> test(tmp);
+        for (int i = 0; i < MAX_VAL; i++)
+	    	std::cout << tmp[i] << std::endl;
+        Array<int> test(numbers);
     }
 
     for (int i = 0; i < MAX_VAL; i++)
@@ -61,6 +62,15 @@ int main(int, char**)
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
+    }
+    Array<int>  test;
+    try
+    {
+        test[4] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
     }
     delete [] mirror;//
     return 0;
