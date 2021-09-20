@@ -6,14 +6,14 @@
 /*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 22:56:05 by user42            #+#    #+#             */
-/*   Updated: 2021/09/20 17:34:20 by isfernan         ###   ########.fr       */
+/*   Updated: 2021/09/20 17:43:30 by isfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 
-#define MAX_VAL 3
+#define MAX_VAL 4
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -21,18 +21,21 @@ int main(int, char**)
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
-        const int value = rand();
+        const int value = rand() % 10;
         numbers[i] = value;
         mirror[i] = value;
-		std::cout << numbers[i] << std::endl;
+		std::cout << numbers[i] << ' ';
     }
+    std::cout << '\n';
     //SCOPE
     {
         Array<int> tmp = numbers;
         for (int i = 0; i < MAX_VAL; i++)
-	    	std::cout << tmp[i] << std::endl;
+	    	std::cout << tmp[i] << ' ';
         Array<int> test(numbers);
     }
+    std::cout << '\n';
+    std::cout << "The number of elements in the array is " << numbers.size() << std::endl;
 
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -59,9 +62,14 @@ int main(int, char**)
         std::cerr << e.what() << '\n';
     }
 
+    Array<int> tmp2 = numbers;
     for (int i = 0; i < MAX_VAL; i++)
     {
-        numbers[i] = rand();
+        numbers[i] = rand() % 10;
+    }
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+		std::cout << numbers[i] << ' ' << tmp2[i] <<  std::endl;
     }
     Array<int>  test;
     try

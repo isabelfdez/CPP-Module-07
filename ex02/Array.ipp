@@ -6,7 +6,7 @@
 /*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 23:21:59 by user42            #+#    #+#             */
-/*   Updated: 2021/09/20 17:35:13 by isfernan         ###   ########.fr       */
+/*   Updated: 2021/09/20 17:39:12 by isfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,12 @@ const char* Array<T>::OutOfRange::what() const throw()
 {
 	return ("Index is out of range");
 }
+
+template<class T>
+int Array<T>::size() const
+{
+	return (this->_length);
+}
+
 
 

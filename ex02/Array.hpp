@@ -6,7 +6,7 @@
 /*   By: isfernan <isfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 22:56:08 by user42            #+#    #+#             */
-/*   Updated: 2021/09/20 16:59:49 by isfernan         ###   ########.fr       */
+/*   Updated: 2021/09/20 17:38:23 by isfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class Array
 			public:
 				const char*	what() const throw();
 		};
+
+		int		size()	const;
 	
 	private:
 		T		*_arr;
